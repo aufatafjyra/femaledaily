@@ -1,20 +1,36 @@
 <template>
-  <nav class="navbar navbar-default">
-    <div class="container text-center">
-        <div id="navbar" class="navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="#">SKINCARE</a></li>
-                <li><a href="#">MAKE UP</a></li>
-                <li><a href="#">BODY</a></li>
-                <li><a href="#">HAIR</a></li>
-                <li><a href="#">FRAGRANCE</a></li>
-                <li><a href="#">NAILS</a></li>
-                <li><a href="#">HAIR</a></li>
-                <li><a href="#">BRANDS</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light" data-toggle="affix" style="background-color: white !important;">
+        <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+            <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SKINCARE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">MAKE UP</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BODY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HAIR</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">FRAGRANCE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">NAILS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">TOOLS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BRANDS</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 </template>
 
 <script>
@@ -24,19 +40,18 @@ export default {
 </script>
 
 <style>
-.navbar .navbar-header,
-.navbar-collapse {
-    float:none;
-    display:inline-block;
-    vertical-align: top;
-    padding-left: 0;
-    padding-right: 0;
-    background-color: white;
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-@media (max-width: 768px) {
-    .navbar-collapse  {
-        display: block;
-    }
+.nav-link {
+    color: black !important;
+}
+
+.navbar {
+    /* border-top: 1px solid #E3E3E3; */
+    border-bottom: 1px solid #E3E3E3;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <NavBar />
-    <!-- <MenuBar /> -->
+    <MenuBar />
 
     <div class="container">
       <div class="ads-section">
@@ -23,27 +23,35 @@
         <BillboardFrame />
       </div>
     </div>
+
+    <div class="container">
+      <div class="home-section">
+        <ArticleSection />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import NavBar from '@/components/NavBar.vue'
-// import MenuBar from '@/components/MenuBar.vue'
+import MenuBar from '@/components/MenuBar.vue'
 import TopFrame from '@/components/TopFrame.vue'
 import BillboardFrame from '@/components/BillboardFrame.vue'
 import EditorChoice from '@/components/EditorChoice.vue'
 import MatchProduct from '@/components/MatchProduct.vue'
+import ArticleSection from '@/components/ArticleSection.vue'
 
 export default {
   name: 'HomeView',
   components: {
     NavBar,
-    // MenuBar
+    MenuBar,
     TopFrame,
     BillboardFrame,
     EditorChoice,
-    MatchProduct
+    MatchProduct,
+    ArticleSection
   }
 }
 </script>
