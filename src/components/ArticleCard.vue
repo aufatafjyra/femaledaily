@@ -1,7 +1,7 @@
 <template>
   <div class="article-card">
     <div class="card">
-        <img alt="Image" src="../assets/image.png">
+        <img alt="Image" src="../assets/image.jpeg">
         <div class="card-body">
             <h5 style="color: black">Title</h5>
             <p><b style="color: grey">Username</b> <c style="color: #CBCBCB"> | 1 hour ago</c></p>
