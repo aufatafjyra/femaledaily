@@ -12,6 +12,7 @@
           <input class="form-control me-2" type="search" placeholder="Search products, articles, topics, brands, etc" aria-label="Search">
         </form>
       </div>
+      <button type="button" class="btn btn-danger mt-0 mb-0">LOGIN / SIGNUP</button>
     </div>
   </nav>
 </template>

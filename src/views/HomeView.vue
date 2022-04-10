@@ -46,10 +46,10 @@
     </div>
 
     <div class="container">
-      <div class="article mt-5">
+      <div class="section-content mt-5">
         <h5>Latest Article</h5>
         <div class="section-title">
-          <h6>So you can make better purchase decision</h6>
+          <h6 class="mb-4 mt-1">So you can make better purchase decision</h6>
           <h6 style="color: #E50914">See more</h6>
         </div>
         <div class="article-section-content">
@@ -66,7 +66,7 @@
         <div class="review-content">
           <h5>Latest Reviews</h5>
           <div class="section-title">
-            <h6>So you can make better purchase decision</h6>
+            <h6 class="mb-4 mt-1">So you can make better purchase decision</h6>
             <h6 style="color: #E50914">See more</h6>
           </div>
           <div class="section-card">
@@ -76,6 +76,60 @@
         </div>
         <img alt="Image" src="../assets/image.jpeg" class="mt-5"> 
       </div>
+
+      <div class="group-content mb-5">
+        <h5>Popular Groups</h5>
+        <div class="section-title">
+          <h6 class="mb-4 mt-1">Where the beauty TALK are</h6>
+          <h6 style="color: #E50914" class="justify-content-end">See more</h6>
+        </div>
+        <div class="section-card">
+          <GroupCard />
+          <GroupCard />
+          <GroupCard />
+          <GroupCard />
+        </div>
+      </div>
+
+      <div class="section-content mb-5">
+        <h5>Latest Videos</h5>
+        <div class="section-title">
+          <h6 class="mb-4 mt-1">Watch and learn, ladies</h6>
+          <h6 style="color: #E50914" class="justify-content-end">See more</h6>
+        </div>
+        <div class="section-video" style="height: 25rem">
+          <div class="section-one">
+            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 25rem">
+          </div>
+          <div class="section-two">
+            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 12rem">
+            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 12rem">
+          </div>
+        </div>
+      </div>
+
+      <div class="section-content mb-5">
+        <h5>Top Brands</h5>
+        <div class="section-title">
+          <h6 class="mb-4 mt-1">We all know and love</h6>
+          <h6 style="color: #E50914" class="justify-content-end">See more</h6>
+        </div>
+        <div class="brand-section">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+        </div>
+        <h5 class="mt-5">Female Daily - Find everything you want to know about beauty on Female Daily</h5>
+        <h6 class="mb-1 mt-2" style="color: black">Product Reviews, Tips & Tricks, Expert and Consumer Opinions, Beauty Tutorials, Discussions, Beauty Workshops, anything!</h6>
+        <h6 class="mb-4" style="color: black">We are here to be your friendly solution to all things beauty, inside and out!</h6>
+      </div>
+    </div>
+    <hr>
+    <div class="ads-section">
+      <BottomFooter />
     </div>
   </div>
 </template>
@@ -89,6 +143,8 @@ import BillboardFrame from '@/components/BillboardFrame.vue'
 import EditorCard from '@/components/EditorCards.vue'
 import ArticleCard from '@/components/ArticleCard.vue'
 import ReviewCard from '@/components/ReviewCard.vue'
+import GroupCard from '@/components/PopularGroupCard.vue'
+import BottomFooter from '@/components/BottomFooter.vue'
 
 export default {
   name: 'HomeView',
@@ -99,7 +155,9 @@ export default {
     BillboardFrame,
     EditorCard,
     ArticleCard,
-    ReviewCard
+    ReviewCard,
+    GroupCard,
+    BottomFooter
     
   }
 }
@@ -182,5 +240,28 @@ h6 {
 .review img {
   width: 300px;
   height: 250px;
+}
+
+.group-content .section-card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.section-video {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  grid-gap: 35px;
+}
+
+.section-video .section-two {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.brand-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 </style>
