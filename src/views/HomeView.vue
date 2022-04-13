@@ -9,7 +9,7 @@
         <BillboardFrame />
       </div>
 
-      <div class="editor">
+      <div class="editor container">
         <h5>Editor's Choice</h5>
         <h6>Curated with love</h6>
         <div class="card-section">
@@ -52,15 +52,15 @@
         <h5>Latest Article</h5>
         <div class="section-title">
           <h6 class="mb-4 mt-1">So you can make better purchase decision</h6>
-          <h6 style="color: #E50914">See more</h6>
+          <h6 style="color: #E50914" class="justify-content-end">See more</h6>
         </div>
-        <div class="article-section-content" v-for="articles in article" v-bind:key="articles.id">
-            <div class="article-card">
+        <div class="article-section-content">
+            <div class="article-card" v-for="article in articles" v-bind:key="article.id">
                 <div class="card">
-                    <img alt="Image" v-bind:src="articles.article['image']">
+                    <img alt="Image" v-bind:src="article.image">
                     <div class="card-body">
-                        <h5 style="color: black">{{articles.title}}</h5>
-                        <p><b style="color: grey">{{articles.author}}</b> <c style="color: #CBCBCB"> | 1 hour ago</c></p>
+                        <h5 style="color: black">{{article.title}}</h5>
+                        <p><b style="color: grey">{{article.author}}</b> <c style="color: #CBCBCB"> | 1 hour ago</c></p>
                     </div>
                 </div>
             </div>
@@ -72,11 +72,31 @@
           <h5>Latest Reviews</h5>
           <div class="section-title">
             <h6 class="mb-4 mt-1">So you can make better purchase decision</h6>
-            <h6 style="color: #E50914">See more</h6>
+            <h6 style="color: #E50914" class="justify-content-end">See more</h6>
           </div>
           <div class="section-card">
-            <ReviewCard />
-            <ReviewCard />
+            <div class="review" v-for="review in reviews" v-bind:key="review.id">
+                <div class="card mt-3">
+                    <div class="card-body">
+                    <div class="card-title">
+                        <div class="card-image">
+                        <img alt="Image" v-bind:src="review.product['image']">
+                        </div>
+                        <div>
+                        <h6 class="card-title">{{review.product['name']}}</h6>
+                        <h6 class="card-subtitle mb-2">{{review.product['desc']}}</h6>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="card-details">
+                        <div class="card-rate">
+                        </div>
+                        <p style="color: grey; font-size: 12px">2 hours ago</p>
+                    </div>
+                    <p class="card-text mt-2" style="font-size: 14px">{{review.comment}}<a href="#" class="card-link">Read More</a> </p>
+                    </div>
+                </div>
+            </div>
           </div>
         </div>
         <img alt="Image" src="../assets/image.jpeg" class="mt-5"> 
@@ -148,7 +168,6 @@ import NavBar from '@/components/NavBar.vue'
 import MenuBar from '@/components/MenuBar.vue'
 import TopFrame from '@/components/TopFrame.vue'
 import BillboardFrame from '@/components/BillboardFrame.vue'
-import ReviewCard from '@/components/ReviewCard.vue'
 import GroupCard from '@/components/PopularGroupCard.vue'
 import BottomFooter from '@/components/BottomFooter.vue' 
 
@@ -183,7 +202,6 @@ export default {
     MenuBar,
     TopFrame,
     BillboardFrame,
-    ReviewCard,
     GroupCard,
     BottomFooter
     
@@ -209,6 +227,7 @@ h6 {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
     grid-gap: 20px;
+    column-count: 5;
 }
 
 .editor-card img {
@@ -261,6 +280,7 @@ h6 {
 .article-section-content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    column-count: 3;
 }
 
 .article-card .card {
@@ -278,11 +298,33 @@ h6 {
   display: grid;
   grid-template-columns: 1fr 0.3fr;
   grid-gap: 50px;
+  column-count: 2;
 }
 
 .review img {
   width: 300px;
   height: 250px;
+}
+
+.review .card {
+  width: 19rem;
+}
+
+.review .card-title {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-gap: 10px;
+}
+
+.review .card-title img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.review .card-details {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+
 }
 
 .group-content .section-card{
