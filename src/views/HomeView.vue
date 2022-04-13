@@ -5,8 +5,12 @@
 
     <div class="container">
       <div class="ads-section">
-        <TopFrame />
-        <BillboardFrame />
+        <div class="container topframe">
+            Top Frame 970x50
+        </div>
+        <div class="container billboard">
+            <p>Billboard 970x250</p>
+        </div>
       </div>
 
       <div class="editor container">
@@ -28,8 +32,8 @@
     
     <div class="match-product">
       <div class="section-one">
-          <img alt="Image" src="../assets/image.jpeg">
-          <div class="match-text-content">
+          <img alt="Image" src="../assets/pic.png" style="height: 100%; width: 100%">
+          <div class="match-text-content" style="padding: 30px">
               <h3>Looking for products that are just simply perfect for you?</h3>
               <h5>Here are some products that we believe match your skin, hair, and body! Have we mentioned that they solve your concerns too?</h5>
               <button type="button" class="btn" style="background-color: #C93B51; color: white">See My Matches</button>
@@ -43,7 +47,10 @@
 
     <div class="container">
       <div class="ads-section">
-        <BillboardFrame />
+        <div class="container billboard" style="text-align: center">
+            <p>Horizontal 970x250</p>
+            <p>(Internal campaign only)</p>
+        </div>
       </div>
     </div>
 
@@ -93,7 +100,7 @@
                         </div>
                         <p style="color: grey; font-size: 12px">2 hours ago</p>
                     </div>
-                    <p class="card-text mt-2" style="font-size: 14px">{{review.comment}}<a href="#" class="card-link">Read More</a> </p>
+                    <p class="card-text mt-2" style="font-size: 14px">{{review.comment}}<a href="#" class="card-link"> Read More</a> </p>
                     </div>
                 </div>
             </div>
@@ -124,28 +131,44 @@
         </div>
         <div class="section-video" style="height: 25rem">
           <div class="section-one">
-            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 25rem">
+            <img alt="Image" src="../assets/vid1.png" style="width: 100%; height: 28rem">
           </div>
           <div class="section-two">
-            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 12rem">
-            <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 12rem">
+            <img alt="Image" src="../assets/vid2.png" style="width: 100%; height: 13rem">
+            <img alt="Image" src="../assets/vid3.png" style="width: 100%; height: 13rem">
           </div>
         </div>
       </div>
 
       <div class="section-content mb-5">
+        <h5>Trending This Week</h5>
+        <div class="section-title">
+          <h6 class="mb-4 mt-1">See our weekly most reviewed products</h6>
+        </div>
+        <div class="section-video" style="height: 25rem">
+          <div class="section-one">
+            <img alt="Image" src="../assets/vid1.png" style="width: 100%; height: 28rem">
+          </div>
+          <div class="section-two">
+            <img alt="Image" src="../assets/vid2.png" style="width: 100%; height: 13rem">
+            <img alt="Image" src="../assets/vid3.png" style="width: 100%; height: 13rem">
+          </div>
+        </div>
+      </div>
+
+      <div class="section-content mb-5 mt-5">
         <h5>Top Brands</h5>
         <div class="section-title">
           <h6 class="mb-4 mt-1">We all know and love</h6>
           <h6 style="color: #E50914" class="justify-content-end">See more</h6>
         </div>
         <div class="brand-section">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
-          <img alt="Image" src="../assets/image.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/nivea.png" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/ordinary.png" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/tbs.png" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/skii.jpeg" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/maybelline.png" style="width: 100%; height: 7rem">
+          <img alt="Image" src="../assets/innisfree.png" style="width: 100%; height: 7rem">
         </div>
         <h5 class="mt-5">Female Daily - Find everything you want to know about beauty on Female Daily</h5>
         <h6 class="mb-1 mt-2" style="color: black">Product Reviews, Tips & Tricks, Expert and Consumer Opinions, Beauty Tutorials, Discussions, Beauty Workshops, anything!</h6>
@@ -155,6 +178,9 @@
     <hr>
     <div class="ads-section">
       <BottomFooter />
+      <div class="bottomframe">
+        <p>Bottom Frame 970x50, 468x60, 320x50</p>
+      </div>
     </div>
   </div>
 </template>
@@ -166,8 +192,6 @@ import axios from 'axios';
 import VueAxios from 'vue-axios'
 import NavBar from '@/components/NavBar.vue'
 import MenuBar from '@/components/MenuBar.vue'
-import TopFrame from '@/components/TopFrame.vue'
-import BillboardFrame from '@/components/BillboardFrame.vue'
 import GroupCard from '@/components/PopularGroupCard.vue'
 import BottomFooter from '@/components/BottomFooter.vue' 
 
@@ -200,8 +224,6 @@ export default {
   components: {
     NavBar,
     MenuBar,
-    TopFrame,
-    BillboardFrame,
     GroupCard,
     BottomFooter
     
@@ -210,6 +232,36 @@ export default {
 </script>
 
 <style scoped>
+.billboard {
+    background-color: #D8D8D8;
+    width: 970px;
+    height: 250px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+}
+
+.topframe {
+    background-color: #D8D8D8;
+    width: 970px;
+    height: 50px;
+    margin-top: 15px;
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+}
+
+.bottomframe {
+    background-color: #D8D8D8;
+    width: 970px; 
+    height: 50px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+}
+
 .ads-section {
   padding-right: 40px;
   padding-left: 40px;
@@ -236,16 +288,15 @@ h6 {
 
 .match-product {
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 0.9fr 1fr;
     background-color: #F7DBE0;
     margin-top: 70px;
     margin-bottom: 70px;
-    padding: 20px;
 }
 
 .match-product .section-one {
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 0.9fr 1fr;
 }
 
 .match-product .section-two {
@@ -348,6 +399,11 @@ h6 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+
+.card-details .card-link {
+    color: #CA3C52;
+    text-decoration: none !important;
 }
 
 

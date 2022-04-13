@@ -53,9 +53,6 @@
                 </svg>
           </div>
       </div>
-      <div class="container mb-4 mt-5">
-        <img alt="" src="../assets/image.jpeg" style="width: 970px; height: 50px">
-      </div>
   </div>
 </template>
 
