@@ -97,6 +97,7 @@
                     <hr>
                     <div class="card-details">
                         <div class="card-rate">
+                            <img src="../assets/rate.png" alt="rate" style="height: 1rem; width: 6rem">
                         </div>
                         <p style="color: grey; font-size: 12px">2 hours ago</p>
                     </div>
@@ -140,19 +141,21 @@
         </div>
       </div>
 
-      <div class="section-content mb-5">
+      <div class="trending section-content mb-5 mt-5">
         <h5>Trending This Week</h5>
         <div class="section-title">
           <h6 class="mb-4 mt-1">See our weekly most reviewed products</h6>
         </div>
-        <div class="section-video" style="height: 25rem">
-          <div class="section-one">
-            <img alt="Image" src="../assets/vid1.png" style="width: 100%; height: 28rem">
-          </div>
-          <div class="section-two">
-            <img alt="Image" src="../assets/vid2.png" style="width: 100%; height: 13rem">
-            <img alt="Image" src="../assets/vid3.png" style="width: 100%; height: 13rem">
-          </div>
+        <div class="card-section">
+            <div class="editor-card" v-for="products in product" v-bind:key="products.id">
+                <div class="card">
+                    <img alt="Image" v-bind:src="products.product['image']">
+                    <div class="card-body">
+                        <p class="card-text"><b>{{products.product['name']}}</b></p>
+                        <p class="card-text">{{products.product['description']}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -358,7 +361,7 @@ h6 {
 }
 
 .review .card {
-  width: 19rem;
+  width: 21rem;
 }
 
 .review .card-title {
@@ -381,6 +384,13 @@ h6 {
 .group-content .section-card{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.trending .card-section {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+    grid-gap: 20px;
+    column-count: 5;
 }
 
 .section-video {
