@@ -1,6 +1,7 @@
 <template>
-  <div class="container billboard">
-      Billboard
+  <div class="container billboard" style="text-align: center">
+    <p><strong>BILLBOARD</strong> banner</p>
+    <p>970x250 pixel</p>
   </div>
 </template>
 

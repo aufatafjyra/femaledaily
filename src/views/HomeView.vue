@@ -13,11 +13,15 @@
         <h5>Editor's Choice</h5>
         <h6>Curated with love</h6>
         <div class="card-section">
-            <EditorCard />
-            <EditorCard />
-            <EditorCard />
-            <EditorCard />
-            <EditorCard />
+            <div class="editor-card" v-for="products in product" v-bind:key="products.id">
+                <div class="card">
+                    <img alt="Image" v-bind:src="products.product['image']">
+                    <div class="card-body">
+                        <p class="card-text"><b>{{products.product['name']}}</b></p>
+                        <p class="card-text">{{products.product['description']}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
@@ -33,9 +37,7 @@
       </div>
 
       <div class="section-two">
-          <EditorCard />
-          <EditorCard />
-          <EditorCard />
+          
       </div>
   </div>
 
@@ -52,13 +54,16 @@
           <h6 class="mb-4 mt-1">So you can make better purchase decision</h6>
           <h6 style="color: #E50914">See more</h6>
         </div>
-        <div class="article-section-content">
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
-            <ArticleCard />
+        <div class="article-section-content" v-for="articles in article" v-bind:key="articles.id">
+            <div class="article-card">
+                <div class="card">
+                    <img alt="Image" v-bind:src="articles.article['image']">
+                    <div class="card-body">
+                        <h5 style="color: black">{{articles.title}}</h5>
+                        <p><b style="color: grey">{{articles.author}}</b> <c style="color: #CBCBCB"> | 1 hour ago</c></p>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -136,25 +141,48 @@
 
 <script>
 // @ is an alias to /src
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios'
 import NavBar from '@/components/NavBar.vue'
 import MenuBar from '@/components/MenuBar.vue'
 import TopFrame from '@/components/TopFrame.vue'
 import BillboardFrame from '@/components/BillboardFrame.vue'
-import EditorCard from '@/components/EditorCards.vue'
-import ArticleCard from '@/components/ArticleCard.vue'
 import ReviewCard from '@/components/ReviewCard.vue'
 import GroupCard from '@/components/PopularGroupCard.vue'
-import BottomFooter from '@/components/BottomFooter.vue'
+import BottomFooter from '@/components/BottomFooter.vue' 
+
+Vue.use(VueAxios,axios)
 
 export default {
   name: 'HomeView',
+  data (){
+    return{
+     dialog: false,
+      drawer: null,
+      items: [{ icon: 'dashboard', text: 'Dashboard', route :'/' },{ icon: 'person', text: 'User', route:'/User' }],
+      product: [],
+      articles:[],
+      reviews:[]
+    }
+  },
+  mounted() {
+      axios
+        .get('https://virtserver.swaggerhub.com/hqms/FDN-WP/0.1/wp')
+        .then(response => {
+            this.product = response.data["editor's choice"];
+            this.articles = response.data["latest articles"];
+            this.reviews = response.data["latest review"];
+        })
+        .catch(error => {
+            console.log(error)
+        })
+  },
   components: {
     NavBar,
     MenuBar,
     TopFrame,
     BillboardFrame,
-    EditorCard,
-    ArticleCard,
     ReviewCard,
     GroupCard,
     BottomFooter
@@ -178,9 +206,13 @@ h6 {
 }
 
 .editor .card-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 20px
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
+    grid-gap: 20px;
+}
+
+.editor-card img {
+    height: 12rem;
 }
 
 .match-product {
@@ -231,6 +263,17 @@ h6 {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
+.article-card .card {
+    width: 21rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.article-card img {
+    height: 10rem;
+}
+
 .review {
   display: grid;
   grid-template-columns: 1fr 0.3fr;
@@ -264,4 +307,6 @@ h6 {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
+
+
 </style>
