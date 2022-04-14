@@ -201,7 +201,7 @@
     <hr>
     <div class="ads-section">
       <BottomFooter />
-      <div class="bottomframe">
+      <div class="bottomframe" style="margin: 0 auto;">
         <p>Bottom Frame 970x50, 468x60, 320x50</p>
       </div>
     </div>
