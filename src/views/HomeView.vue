@@ -18,13 +18,20 @@
         <h6>Curated with love</h6>
         <div class="card-section">
             <div class="editor-card" v-for="products in product" v-bind:key="products.id">
-                <div class="card">
-                    <img alt="Image" v-bind:src="products.product['image']">
-                    <div class="card-body">
-                        <p class="card-text"><b>{{products.product['name']}}</b></p>
-                        <p class="card-text">{{products.product['description']}}</p>
-                    </div>
-                </div>
+              <div class="card-button-info mt-4">
+                  <img class="rounded-circle" style="width: 70px; height: 70px" src="//static.femaledaily.com/dyn/70/images/user-pics/64e507749ca86ddc63151ed528bec179.jpg" alt="Avatar">
+                  <div class="card-button-text">
+                    <p><b>{{products.editor}}</b></p>
+                    <p style="font-size: 14px; color: grey">{{products.role}}</p>
+                  </div>
+              </div>
+              <div class="card">
+                  <img alt="Image" v-bind:src="products.product['image']">
+                  <div class="card-body">
+                      <p class="card-text"><b>{{products.product['name']}}</b></p>
+                      <p class="card-text">{{products.product['description']}}</p>
+                  </div>
+              </div>
             </div>
         </div>
       </div>
@@ -39,9 +46,22 @@
               <button type="button" class="btn" style="background-color: #C93B51; color: white">See My Matches</button>
           </div>
       </div>
-
-      <div class="section-two">
-          
+      <div class="section-two" style="padding: 10px;">
+          <div class="editor-card">
+              <div class="card" style="height: 22rem; width: 11rem">
+                  <img alt="Image" src="../assets/card.png" style="height: 22rem; width: 13rem; margin-right: 10px">
+              </div>
+          </div>
+          <div class="editor-card">
+              <div class="card" style="height: 22rem; width: 11rem">
+                  <img alt="Image" src="../assets/card.png" style="height: 22rem; width: 13rem; margin-right: 10px">
+              </div>
+          </div>
+          <div class="editor-card">
+              <div class="card" style="height: 22rem; width: 11rem">
+                  <img alt="Image" src="../assets/card.png" style="height: 22rem; width: 13rem; margin-right: 10px">
+              </div>
+          </div>
       </div>
   </div>
 
@@ -283,6 +303,11 @@ h6 {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr !important;
     grid-gap: 20px;
     column-count: 5;
+}
+
+.editor-card .card-button-info {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
 }
 
 .editor-card img {
